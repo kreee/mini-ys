@@ -1,0 +1,42 @@
+page {
+    background-color: #ccc;
+}
+
+input {
+    margin: 10px 10px;
+    background-color: #fff;
+}
+
+.sug_info {
+    margin: 15px 10px;
+}
+
+.container {
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  overflow: hidden;
+}
+
+.circle {
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  background: #f1f1f1 none repeat scroll 0 0;
+  height: 60rpx;
+  width: 710rpx;
+  border-radius: 30rpx;
+  line-height: 60rpx;
+}
+
+.search {
+  position: absolute;
+  left: 35rpx;
+  top: 30rpx;
+}
+
+.search_text {
+  width: 580rpx;
+  height: 60rpx;
+  text-align: left;
+  margin-left: 68rpx;
+}
