@@ -1,15 +1,19 @@
+
+    <view class="circle">
+        <input placeholder="输入关键字"  type="text" bindinput="bindKeyInput"/>
+    </view>
+    <view class="icon">
+      <icon type="search" size="30"/>
+    </view>
+    <view class="sug_info">
+      <view catchtap="search" data='{{sugData}}'>{{sugData}}</view>
+    </view>
+
 <!--
-<view class="section">
-  <input placeholder="输入关键字"  type="text" bindinput="bindKeyInput"/>
-</view>
-<view class="sug_info">
-  <text>{{sugData}}</text>
-</view>
--->
-<view class="container" enable-back-to-top="true" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE">
+ enable-back-to-top="true" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE">
   <view class="circle">
     <icon class="search" type="search" size="20" />
     <input class="search_text" maxlength="15" placeholder='店名，地址' 
     auto-focus bindconfirm="textSearch" value='{{inputValue}}' bindinput="bindKeyInput" />
   </view>
-  </view>
+  </view>-->

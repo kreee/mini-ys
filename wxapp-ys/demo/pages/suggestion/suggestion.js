@@ -1,7 +1,8 @@
 var bmap = require('../../libs/bmap-wx.min.js');
 Page({
     data: {
-        sugData: ''
+        sugData: '',
+        flag : 1
     },
     bindKeyInput: function(e) {
         var that = this;
@@ -23,7 +24,7 @@ Page({
                 sugData = sugData + data.result[i].name + '\n';
             }
             that.setData({
-                sugData: sugData
+              sugData: data
             });
         }
         BMap.suggestion({
@@ -33,5 +34,8 @@ Page({
             fail: fail,
             success: success
         });
+    },
+    search:function(e){
+      console.log(e);
     }
 })
