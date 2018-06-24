@@ -15,7 +15,7 @@ Page({
     },
     getBMap: function () {
       var BMap = new bmap.BMapWX({
-        ak: 'Ajc1srZRGRWFbDKtHkS43nYyDQlj9Noi'
+        ak: ''
       });
       return BMap;
     },

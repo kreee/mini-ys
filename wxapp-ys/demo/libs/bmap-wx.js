@@ -51,7 +51,7 @@ class BMapWX {
         var that = this;
         param = param || {};
         let searchparam = {
-            query: param["query"] || '推拿$足浴$养生$足疗$按摩$休闲$水疗$刮痧$保健',
+            query: param["query"] || '',
             scope: param["scope"] || 2,
             filter: param["filter"] || '',
             tag: param["tag"] || '洗浴按摩',
