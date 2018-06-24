@@ -1,8 +1,13 @@
 var bmap = require('../../libs/bmap-wx.min.js');
 Page({
     data: {
-        sugData: '',
-        flag : 1
+        sugData: ''
+    },
+    getBMap : function(){
+      var BMap = new bmap.BMapWX({
+        ak: 'Ajc1srZRGRWFbDKtHkS43nYyDQlj9Noi'
+      });
+      return BMap;
     },
     bindKeyInput: function(e) {
         var that = this;
@@ -12,19 +17,13 @@ Page({
             });
             return;
         }
-        var BMap = new bmap.BMapWX({
-          ak: 'Ajc1srZRGRWFbDKtHkS43nYyDQlj9Noi'
-        });
+
         var fail = function(data) {
             console.log(data)
         };
         var success = function(data) {
-            var sugData = '';
-            for(var i = 0; i < data.result.length; i++) {
-                sugData = sugData + data.result[i].name + '\n';
-            }
             that.setData({
-              sugData: data
+              sugData: data.result
             });
         }
         BMap.suggestion({
@@ -36,6 +35,7 @@ Page({
         });
     },
     search:function(e){
-      console.log(e);
+      this.data;
+      console.log(this.data.sugData[e.target.dataset.index]);
     }
 })

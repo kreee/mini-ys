@@ -5,10 +5,9 @@
     <view class="icon">
       <icon type="search" size="30"/>
     </view>
-    <view class="sug_info">
-      <view catchtap="search" data='{{sugData}}'>{{sugData}}</view>
-    </view>
-
+<view class="sug_info" wx:for="{{sugData}}">
+<view catchtap="search" data-index="{{index}}">{{item.name}}</view>
+</view>
 <!--
  enable-back-to-top="true" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE">
   <view class="circle">
