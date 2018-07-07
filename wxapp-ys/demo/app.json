@@ -1,7 +1,19 @@
 {
   "pages":[
-    "pages/search/search"
-  ]
-
-
+    "pages/search/search",
+    "pages/suggestion/suggestion"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#121212",
+    "navigationBarTitleText": "BMapWX",
+    "navigationBarTextStyle": "#fff",
+    "backgroundColor": "#ddd"
+  },
+  "plugins": {
+    "myPlugin": {
+      "version": "1.0.6",
+      "provider": "wx5bc2ac602a747594"
+    }
+  }
 }

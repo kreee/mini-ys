@@ -1,16 +1,41 @@
 .map_container{
-  top:70rpx;
-    height: 750rpx;
+  position: absolute;
+  top:100rpx;
+    height: 92%;
     width: 100%;
+    background-color: #f8f8f8;
+    overflow:hidden;
 }
-
-.map {
+.nav{
+  position: absolute;
+  top:0rpx;
+    height: 8%;
+    width: 100%;
+    background-color: #a2bc75;
+    
+}
+.content_bg{
+    position: absolute;
+  top:950rpx;
     height: 100%;
+    width: 100%;
+    background-color: #e0e8d0;
+}
+.map {
+    height: 950rpx;
     width: 100%;
 }
 
 .place_info {
-    padding: 0 5px;
+    padding: 30rpx 20rpx;
+}
+.title{
+  font-size:14pt;
+  color:#353535;
+}
+.address{
+    font-size:13pt;
+  color:#888888;
 }
 .detail_info {
     padding: 5px;
@@ -31,39 +56,39 @@
 }
 
 input {
-    left: 15rpx;
+  position: absolute;
+    left: 70rpx;
     top: 4rpx;
      height: 55rpx;
-    width: 600rpx;
+    width: 500rpx;
     background-color: #fff;
 
 }
 .circle {
+  position: fixed;
+    top: 15rpx;
+    left: 15rpx;
      height: 55rpx;
     width: 610rpx;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 30rpx;
     border-style: solid;
     border-width: 2px;
-    border-color:#980503;
+    border-color:#b2b2b2;
     padding-left: 2%;
     padding-top: 1%;
     
 }
 .sug_info {
     margin: 6rpx 20rpx;
+    background: #ffffff;
 }
 
 .icon {
-  position: absolute;
-  left: 640rpx;
-  top: 5rpx;
-  height: 66rpx;
-  width: 100rpx;
-  font-size:28rpx;
-  text-align:center;
-  color:#fff;
-  line-height: 60rpx; 
-      background-color: #980503;
-    border-radius: 20rpx;
+  position: fixed;
+  left: 645rpx;
+  top: 0rpx;
+width:110rpx;
+height:110rpx;
+
 }

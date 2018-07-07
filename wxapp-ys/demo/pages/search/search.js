@@ -15,18 +15,23 @@ Page({
     },
     getBMap: function () {
       var BMap = new bmap.BMapWX({
-        ak: ''
+        ak: 'Ajc1srZRGRWFbDKtHkS43nYyDQlj9Noi'
       });
       return BMap;
     },
     makertap: function(e) {
         var that = this;
         var id = e.markerId;
+/*
+        wx.navigateTo({
+          url: '/pages/suggestion/suggestion?latitude=' + wxMarkerData[id].latitude + '&longitude='
+                   + wxMarkerData[id].longitude + '&name=' + wxMarkerData[id].title
+        });
+*/
         that.showSearchInfo(wxMarkerData, id);
         that.changeMarkerColor(wxMarkerData, id);
 
         var successComment = function (data) {
-          console.log(data);
           if (data == null){
             return;
           }
@@ -37,7 +42,9 @@ Page({
         that.getBMap().detail({ success: successComment, uid: wxMarkerData[id].uid});
         
     },
-    
+    /*
+https://map.baidu.com/detail?qt=ugcphotolist&type=cater&orderBy=1&from=mappc&uid=a9ff0cfd016f46a1b64f5419&photoType=photo_environment,photo_dish,photo_other&pageIndex=1&pageCount=18
+    */
   bindKeyInput: function (e) {
     var that = this;
     that.setData({
@@ -75,17 +82,25 @@ Page({
   },
   changetap : function(e){
     var that = this;
-    console.log("d" + that.data.page_num);
 
      if (that.data.page_num < that.data.total/20) {
        that.data.page_num ++;
      }else{
        that.data.page_num = 0;
      }
-         location = that.data.latitude + ',' + this.data.longitude;
-         that.search({ location: location, page_num: that.data.page_num });
+     location = that.data.latitude + ',' + this.data.longitude;
+     that.search({ location: location, page_num: that.data.page_num });
   },
   onLoad: function() {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          screenHeight: res.windowHeight,
+          screenWidth: res.windowWidth,
+        });
+      }
+    });
       this.search();
   },
   search: function(param){
@@ -128,7 +143,7 @@ Page({
         }
         that.setData({
             placeData: {
-                title: '名称：' + data[i].title + '\n',
+                title: data[i].title + '\n',
                 address: '地址：' + data[i].address + '\n',
                 telephone: '电话：' + data[i].telephone + '\n',
                 tag: data[i].tag + '\t',

@@ -1,27 +1,37 @@
+
+<view class="nav">
     <view class="circle">
+        <icon type="search" size="28"/>
         <input placeholder="输入地点"  type="text" bindinput="bindKeyInput"/>
+   </view>
+        <image class="icon"  catchtap="changetap"  src="../../img/change.png">
+    </image>
+ </view>
+<view class="map_container">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" 
+        show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+    <cover-view  hidden="{{flag ? true : false}}" class="sug_info" wx:for="{{sugData}}">
+        <cover-view catchtap="searchtap" data-index="{{index}}">{{item.name}}</cover-view>
+    </cover-view>
+  </map>
+  <view class="content_bg">
+  
+      <view class="place_info">
+        <text class="title">{{placeData.title}}</text>
+        <text class="address">{{placeData.address}}</text>
+        <text class="address">{{placeData.telephone}}</text>
+      </view>
+      <!--
+    <view class="detail_info">
+        <text class="detail">{{placeData.distance}}</text>
+        <text class="detail">{{placeData.price}}</text>
+        <text class="detail">{{placeData.overall_rating}}</text>
     </view>
-    <view class="icon" catchtap="changetap">
-    换一批
+    <view class="comment_info" wx:for="{{commentData}}">
+        <rich-text> \t热心网友 : {{item.content}}\n</rich-text>
+        <text></text>
     </view>
-<view  hidden="{{flag ? true : false}}" class="sug_info" wx:for="{{sugData}}">
-  <view catchtap="searchtap" data-index="{{index}}">{{item.name}}</view>
+    -->
+     </view>
 </view>
 
-<view class="map_container">
-  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
-</view>
-<view class="place_info">
-  <text>{{placeData.title}}</text>
-  <text>{{placeData.address}}</text>
-  <text>{{placeData.telephone}}</text>
-</view>
-<view class="detail_info">
-  <text class="detail">{{placeData.distance}}</text>
-  <text class="detail">{{placeData.price}}</text>
-  <text class="detail">{{placeData.overall_rating}}</text>
-  </view>
-<view class="comment_info" wx:for="{{commentData}}">
-   <rich-text> \t热心网友 : {{item.content}}\n</rich-text>
-   <text></text>
-</view>
