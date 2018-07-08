@@ -9,10 +9,16 @@ Page({
         commentData: {},
         sugData: '',
         flag : false,
+        detailBtnFlag:true,
         region : '北京',
         total : 0,
-        page_num : 0
+        page_num : 0,
+        showStarWidth:0
     },
+    navigationLat:0,
+    navigationLong: 0,
+    navigationName: "",
+    navigationUid: "",
     getBMap: function () {
       var BMap = new bmap.BMapWX({
         ak: 'Ajc1srZRGRWFbDKtHkS43nYyDQlj9Noi'
@@ -22,12 +28,12 @@ Page({
     makertap: function(e) {
         var that = this;
         var id = e.markerId;
-/*
-        wx.navigateTo({
-          url: '/pages/suggestion/suggestion?latitude=' + wxMarkerData[id].latitude + '&longitude='
-                   + wxMarkerData[id].longitude + '&name=' + wxMarkerData[id].title
-        });
-*/
+        //设置导航地点
+        that.navigationLat = wxMarkerData[id].latitude;
+        that.navigationLong = wxMarkerData[id].longitude;
+        that.navigationName = wxMarkerData[id].title;
+        that.navigationUid = wxMarkerData[id].uid;
+
         that.showSearchInfo(wxMarkerData, id);
         that.changeMarkerColor(wxMarkerData, id);
 
@@ -42,9 +48,7 @@ Page({
         that.getBMap().detail({ success: successComment, uid: wxMarkerData[id].uid});
         
     },
-    /*
-https://map.baidu.com/detail?qt=ugcphotolist&type=cater&orderBy=1&from=mappc&uid=a9ff0cfd016f46a1b64f5419&photoType=photo_environment,photo_dish,photo_other&pageIndex=1&pageCount=18
-    */
+
   bindKeyInput: function (e) {
     var that = this;
     that.setData({
@@ -93,15 +97,7 @@ https://map.baidu.com/detail?qt=ugcphotolist&type=cater&orderBy=1&from=mappc&uid
   },
   onLoad: function() {
     var that = this;
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          screenHeight: res.windowHeight,
-          screenWidth: res.windowWidth,
-        });
-      }
-    });
-      this.search();
+    that.search();
   },
   search: function(param){
     var that = this;
@@ -118,7 +114,8 @@ https://map.baidu.com/detail?qt=ugcphotolist&type=cater&orderBy=1&from=mappc&uid
         region: wxMarkerData[0].city,
         latitude: wxMarkerData[0].latitude,
         longitude: wxMarkerData[0].longitude,
-        total: wxMarkerData[0].total
+        total: wxMarkerData[0].total,
+        detailBtnFlag:true
       });
     };
     var config = {
@@ -149,7 +146,7 @@ https://map.baidu.com/detail?qt=ugcphotolist&type=cater&orderBy=1&from=mappc&uid
                 tag: data[i].tag + '\t',
                 distance: '距您' + data[i].distance + '米\t',
                 price: '价格:' + data[i].price + '元\t',
-                overall_rating: '星级:' + data[i].overall_rating + '星',
+                overall_rating: data[i].overall_rating*40,
             }
         });
     },
@@ -175,7 +172,23 @@ https://map.baidu.com/detail?qt=ugcphotolist&type=cater&orderBy=1&from=mappc&uid
             markersTemp[i] = data[i];
         }
         that.setData({
+            detailBtnFlag:false,
             markers: markersTemp
         });
+    },
+    tapnavigation: function(){
+      var that = this;
+      console.log("jinlaile");
+        wx.navigateTo({
+          url: '/pages/suggestion/suggestion?latitude=' + that.navigationLat + '&longitude='
+          + that.navigationLong + '&name=' + that.navigationName
+        });
+    },
+    tapDetail: function(){
+      var that = this;
+      wx.navigateTo({
+        url: '/pages/detail/detail?latitude=' + that.navigationLat + '&longitude='
+        + that.navigationLong + '&name=' + that.navigationName + '&uid=' + that.navigationUid
+      });
     }
 })

@@ -10,9 +10,16 @@
 <view class="map_container">
   <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" 
         show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+        
     <cover-view  hidden="{{flag ? true : false}}" class="sug_info" wx:for="{{sugData}}">
         <cover-view catchtap="searchtap" data-index="{{index}}">{{item.name}}</cover-view>
+        <cover-view class="sug_line">
+        </cover-view>
     </cover-view>
+    <cover-image class="detail_btn" hidden="{{detailBtnFlag ? true : false}}" style="left:35%;" catchtap="tapDetail"  src="../../img/detail_btn.png">
+    </cover-image>
+    <cover-image class="detail_btn" hidden="{{detailBtnFlag ? true : false}}" style="left:55%" catchtap="tapnavigation"  src="../../img/navigation_btn.png">
+    </cover-image>
   </map>
   <view class="content_bg">
   
@@ -21,16 +28,18 @@
         <text class="address">{{placeData.address}}</text>
         <text class="address">{{placeData.telephone}}</text>
       </view>
+        <view class="show_star" style="width:{{placeData.overall_rating}}rpx">
+            <image class="star" src="../../img/star_gold.png" ></image>
+        </view>
+        <image class="star" src="../../img/star_grey.png" 
+            style="left: 535rpx;top: 24rpx;"></image>
       <!--
     <view class="detail_info">
         <text class="detail">{{placeData.distance}}</text>
         <text class="detail">{{placeData.price}}</text>
         <text class="detail">{{placeData.overall_rating}}</text>
     </view>
-    <view class="comment_info" wx:for="{{commentData}}">
-        <rich-text> \t热心网友 : {{item.content}}\n</rich-text>
-        <text></text>
-    </view>
+
     -->
      </view>
 </view>

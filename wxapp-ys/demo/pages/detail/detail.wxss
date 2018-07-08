@@ -1,0 +1,52 @@
+page {
+    background-color: #a2bc75;
+}
+
+.title {
+    position: absolute;
+    left: 0rpx;
+    top: 10rpx;
+     height: 55rpx;
+    width: 100%;
+    text-align: center;
+    font-size: 22pt;
+}
+.swiper {
+  position: absolute;
+  top: 10%;
+  height: 400rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.comment_info {
+    position: relative;
+    top: 115rpx;
+    height: 100%;
+    padding: 0 5px;
+    background: #e0e8d0;
+    margin-bottom: 5px;
+}
+.show_star{
+  position: relative;
+  height: 36rpx;
+  width: 0rpx;
+  left: 24rpx;
+  top: 10rpx;
+  overflow:hidden;
+  z-index:1000;
+}
+.star{
+  position: relative;
+  height: 33rpx;
+  width: 196rpx;
+}
+.date{
+  position: absolute;
+  left: 55%;
+  top: 10rpx;
+  font-size: 11pt;
+  color:#b2b2b2;
+}

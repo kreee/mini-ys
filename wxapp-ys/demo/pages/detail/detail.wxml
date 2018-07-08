@@ -1,0 +1,23 @@
+<!--pages/detail/detail.wxml-->
+<view class="title">
+{{name}}
+ </view>
+ <!--index.wxml 
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
+      <block wx:for="{{photoList}}" wx:for-index="index">  
+        <swiper-item>  
+          <image src="{{item}}" class="slide-image" mode="aspectFill"/>  
+        </swiper-item>  
+      </block>  
+    </swiper>  
+-->
+    <view class="comment_info" wx:for="{{commentData}}">
+        <view class="show_star" style="width:{{item.overall_rating*40}}rpx">
+            <image class="star" src="../../img/star_gold.png" ></image>
+        </view>
+        <image class="star" src="../../img/star_grey.png" 
+            style="left: 24rpx;top: -28rpx;"></image>
+        <view class="date">{{item.date}}</view>
+        <rich-text> \t用户评论 : {{item.content}}\n</rich-text>
+        <text></text>
+    </view>

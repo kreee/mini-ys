@@ -37,6 +37,20 @@
     font-size:13pt;
   color:#888888;
 }
+.show_star{
+  position: absolute;
+  height: 40rpx;
+  width: 0rpx;
+  left: 535rpx;
+  top: 24rpx;
+  overflow:hidden;
+  z-index:1000;
+}
+.star{
+  position: absolute;
+  height: 40rpx;
+  width: 196rpx;
+}
 .detail_info {
     padding: 5px;
     font-size:14px;
@@ -48,12 +62,7 @@
     border-radius: 30rpx;
     
 }
-.comment_info {
-    padding: 0 5px;
-    border-radius: 30rpx;
-    background: #fbc3c3;
-    margin-bottom: 5px;
-}
+
 
 input {
   position: absolute;
@@ -79,15 +88,30 @@ input {
     padding-top: 1%;
     
 }
+.sug_line {
+   width:100%;
+   height:15rpx;
+    background: #a2bc75;
+  
+}
 .sug_info {
-    margin: 6rpx 20rpx;
-    background: #ffffff;
+    margin: 0rpx 20rpx;
+    background: #e0e8d0;
+    font-size:17pt;
 }
 
 .icon {
   position: fixed;
   left: 645rpx;
   top: 0rpx;
+width:110rpx;
+height:110rpx;
+
+}
+
+.detail_btn {
+  position: absolute;
+  top: 85%;
 width:110rpx;
 height:110rpx;
 
