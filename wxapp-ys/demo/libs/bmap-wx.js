@@ -51,7 +51,7 @@ class BMapWX {
         var that = this;
         param = param || {};
         let searchparam = {
-            query: param["query"] || '',
+            query: param["query"] || '推拿$足浴$养生$足疗$按摩$休闲$水疗$刮痧$保健',
             scope: param["scope"] || 2,
             filter: param["filter"] || '',
             tag: param["tag"] || '洗浴按摩',
@@ -415,8 +415,54 @@ class BMapWX {
           otherparam.fail(data);
         }
       });
+    }
 
+    /**
+ * 获取地点的图片
+ *
+ * @param {Object} param 配置
+ * 参数对象结构可以参考
+ * http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding
+ */
+    getPhotoList(param) {
+      var that = this;
+      param = param || {};
+      let detailparam = {
+        uid: param["uid"],
+        pageIndex: param["pageIndex"] || 1,
+        pageCount: param["pageCount"] || '10',
+        orderBy: param["orderBy"] || 1,
+        type: param["type"] || 'cater',
+        from: param["from"] || 'mapwap',
+        qt: param["qt"] || 'ugcphotolist',
+        photoType: param["photoType"] || 'photo_environment,photo_dish,photo_other'
+      };
 
+      var successComment = param["success"];
+      wx.request({
+        url: 'https://map.baidu.com/detail',
+        data: detailparam,
+        header: {
+          "content-type": "application/json"
+        },
+        method: 'GET',
+        success(data) {
+          let res = data["data"];
+
+          if (res["errorNo"] === 0) {
+            successComment(res.photo.photo_list);
+
+          } else {
+            otherparam.fail({
+              errMsg: res["message"],
+              statusCode: res["status"]
+            });
+          }
+        },
+        fail(data) {
+          otherparam.fail(data);
+        }
+      });
     }
 }
 
