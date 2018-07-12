@@ -18,7 +18,7 @@
     </cover-view>
     <cover-image class="detail_btn" hidden="{{detailBtnFlag ? true : false}}" style="left:35%;" catchtap="tapDetail"  src="../../img/detail_btn.png">
     </cover-image>
-    <cover-image class="detail_btn" hidden="{{detailBtnFlag ? true : false}}" style="left:55%" catchtap="tapnavigation"  src="../../img/navigation_btn.png">
+    <cover-image class="navigation_btn" hidden="{{detailBtnFlag ? true : false}}" style="left:55%" catchtap="tapnavigation"  src="../../img/navigation_btn.png">
     </cover-image>
   </map>
   <view class="content_bg">
@@ -32,14 +32,13 @@
             <image class="star" src="../../img/star_gold.png" ></image>
         </view>
         <image class="star" src="../../img/star_grey.png" 
-            style="left: 535rpx;top: 24rpx;"></image>
+            style="left: 535rpx;top: 29rpx;"></image>
       <!--
     <view class="detail_info">
         <text class="detail">{{placeData.distance}}</text>
         <text class="detail">{{placeData.price}}</text>
         <text class="detail">{{placeData.overall_rating}}</text>
     </view>
-
     -->
      </view>
 </view>

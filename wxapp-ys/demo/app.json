@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/search/search",
-    "pages/detail/detail",
-    "pages/suggestion/suggestion"
-    
+        "pages/search/search",
+    "pages/suggestion/suggestion",
+        "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
