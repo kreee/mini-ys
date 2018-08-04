@@ -7,9 +7,10 @@ Page({
         longitude: '',
         placeData: {},
         commentData: {},
+        comment_num: 0,
         sugData: '',
         flag : false,
-        detailBtnFlag:true,
+        detailBtnFlag:false,
         region : '北京',
         total : 0,
         page_num : 0,
@@ -37,12 +38,13 @@ Page({
         that.showSearchInfo(wxMarkerData, id);
         that.changeMarkerColor(wxMarkerData, id);
 
-        var successComment = function (data) {
+        var successComment = function (data, comment_num) {
           if (data == null){
             return;
           }
           that.setData({
-            commentData: data
+            commentData: data,
+            comment_num: comment_num
           });
         };
         that.getBMap().detail({ success: successComment, uid: wxMarkerData[id].uid});
@@ -114,8 +116,7 @@ Page({
         region: wxMarkerData[0].city,
         latitude: wxMarkerData[0].latitude,
         longitude: wxMarkerData[0].longitude,
-        total: wxMarkerData[0].total,
-        detailBtnFlag:true
+        total: wxMarkerData[0].total
       });
     };
     var config = {
@@ -172,13 +173,12 @@ Page({
             markersTemp[i] = data[i];
         }
         that.setData({
-            detailBtnFlag:false,
+            detailBtnFlag:true,
             markers: markersTemp
         });
     },
     tapnavigation: function(){
       var that = this;
-      console.log("jinlaile");
         wx.navigateTo({
           url: '/pages/suggestion/suggestion?latitude=' + that.navigationLat + '&longitude='
           + that.navigationLong + '&name=' + that.navigationName

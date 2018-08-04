@@ -25,6 +25,14 @@
     height: 950rpx;
     width: 100%;
 }
+.btn {
+  position: relative;
+    top:85%;
+    height: 60rpx;
+    width: 650rpx;
+    left: 50rpx;
+}
+
 
 .place_info {
     padding: 30rpx 20rpx;
@@ -111,15 +119,15 @@ height:110rpx;
 
 .detail_btn{
   position: absolute;
-  top: 85%;
-width:52rpx;
-height:70rpx;
+  top: 87%;
+width:66rpx;
+height:86rpx;
 
 }
 .navigation_btn {
   position: absolute;
-  top: 85%;
-width:110rpx;
-height:110rpx;
+  top: 86%;
+width:95rpx;
+height:95rpx;
 
 }

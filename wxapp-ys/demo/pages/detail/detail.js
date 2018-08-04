@@ -33,7 +33,7 @@ Page({
         commentData: data
       });
     };
-    that.getBMap().detail({ success: successComment, uid: that.uid });
+    that.getBMap().detail({ success: successComment, uid: that.uid, pageCount: 66 });
   },
   /**
 * 获取图片列表
