@@ -100,6 +100,7 @@ Page({
   onLoad: function() {
     var that = this;
     that.search();
+
   },
   search: function(param){
     var that = this;

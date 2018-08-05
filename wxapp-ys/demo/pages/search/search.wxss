@@ -25,14 +25,6 @@
     height: 950rpx;
     width: 100%;
 }
-.btn {
-  position: relative;
-    top:85%;
-    height: 60rpx;
-    width: 650rpx;
-    left: 50rpx;
-}
-
 
 .place_info {
     padding: 30rpx 20rpx;
@@ -116,18 +108,35 @@ width:110rpx;
 height:110rpx;
 
 }
-
-.detail_btn{
+.btn {
   position: absolute;
-  top: 87%;
-width:66rpx;
-height:86rpx;
+    top:85%;
+    left: 50rpx;
+
+  background-color: #1aad19; /* Green */
+  border: none;
+  color: white;
+  padding: 10rpx 32rpx;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28rpx;
+  border-radius: 8rpx;
+}
+.detail_btn{
+height: 40rpx;
+width: 105rpx;
+left: 50rpx;
 
 }
 .navigation_btn {
-  position: absolute;
-  top: 86%;
-width:95rpx;
-height:95rpx;
+height: 40rpx;
+width: 105rpx;
+left: 550rpx;
+}
 
+.share_btn {
+height: 40rpx;
+width: 110rpx;
+left: 300rpx;
 }

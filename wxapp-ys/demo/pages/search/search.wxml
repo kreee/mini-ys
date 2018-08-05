@@ -11,19 +11,20 @@
 <view class="map_container">
   <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" 
         show-location="true" markers="{{markers}}" bindmarkertap="makertap">
-         <cover-view class="btn">
-        <button type="primary" size="mini" bindtap="tapDetail" 
-            hidden="{{detailBtnFlag ? true : false}}"> 评论({{comment_num}}) </button>
-        
-        <button type="primary" size="mini" open-type="share" 
-            hidden="{{detailBtnFlag ? true : false}}" style='left:16%'> 告诉朋友   
-        </button>
 
-        <button type="primary" size="mini" bindtap="tapnavigation" 
-            hidden="{{detailBtnFlag ? true : false}}" style='left:30%'> 到这去                         </button>
-    </cover-view>   
+        <cover-view class="btn detail_btn" bindtap="tapDetail" hidden="{{detailBtnFlag ? false : true}}">
+                评论({{comment_num}})
+        </cover-view>  
+
+        <button class="btn" type="primary" size="mini" style='left:335rpx'
+        hidden="{{detailBtnFlag ? false : true}}" open-type="share"> 告诉朋友 </button>
+
+        <cover-view class="btn navigation_btn" bindtap="tapnavigation" hidden="{{detailBtnFlag ? false : true}}">
+                到这去
+        </cover-view>  
+   
     <cover-view  hidden="{{flag ? true : false}}" class="sug_info" wx:for="{{sugData}}">
-        <cover-view class="test" catchtap="searchtap" data-index="{{index}}">{{item.name}}             </cover-view>
+        <cover-view class="test" catchtap="searchtap" data-index="{{index}}">{{item.name}}</cover-view>
         <cover-view class="sug_line">
         </cover-view>    
     </cover-view>
@@ -33,7 +34,7 @@
   <view class="content_bg">
       <view class="place_info">
         <text class="title">{{placeData.title}}</text>
-        <text class="address">{{placeData.address}}</text>
+        <text class="address">{{placeData.address}} {{comment_num}}</text>
         <text class="address">{{placeData.telephone}}</text>
       </view>
         <view class="show_star" style="width:{{placeData.overall_rating}}rpx">
@@ -43,7 +44,7 @@
             style="left: 535rpx;top: 29rpx;"></image>
      
     <view class="detail_info" hidden="{{detailBtnFlag}}">
-        <text class="detail">点击“换” 按钮，可以换一批附件的店铺。
+        <text class="detail">点击“换” 按钮，可以换一批附近的店铺。
         点击地点标注，可以查看店铺评论等信息</text>
 
     </view>
@@ -51,3 +52,16 @@
      </view>
 </view>
 
+        listen 443;
+        server_name  www.lhuluobo.cn; #填写绑定证书的域名
+        ssl on;
+        ssl_certificate      1_www.lhuluobo.cn_bundle.crt;
+        ssl_certificate_key  2_www.lhuluobo.cn.key;
+        ssl_session_timeout 5m;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#按照这个套件配置
+        ssl_prefer_server_ciphers on;
+        location / {
+            root   html; #站点目录
+            index  index.html index.htm;
+        }
